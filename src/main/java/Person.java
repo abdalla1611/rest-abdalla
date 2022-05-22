@@ -1,7 +1,6 @@
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.GeneratedValue;
-
 @Entity
 public class Person {
     @Id
