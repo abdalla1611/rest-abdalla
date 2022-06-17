@@ -1,37 +1,9 @@
-package Entity;
+package data;
 
-import jakarta.persistence.*;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.Path;
-@Entity
-@Table(name ="People")
-public class People {
-    @GeneratedValue
-    private String id;
+public class PersonData {
     private String name ;
-    @Id
     private String email ;
-
     private String favoriteProgrammingLanguage ;
-
-    @Column(columnDefinition = "0")
-    private int activeTaskCount ;
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public int getActiveTaskCount() {
-        return activeTaskCount;
-    }
-
-    public void IncrementActiveTaskCount(){
-        this.activeTaskCount ++;
-    }
 
     public String getName() {
         return name;
