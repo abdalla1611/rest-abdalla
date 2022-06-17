@@ -1,6 +1,5 @@
 package Entity;
 
-import com.fasterxml.jackson.annotation.JsonView;
 import jakarta.persistence.*;
 
 import static jakarta.persistence.InheritanceType.JOINED;
@@ -20,6 +19,21 @@ public class Task {
     @Enumerated(EnumType.STRING)
     private Status status ;
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
 }
 
 
