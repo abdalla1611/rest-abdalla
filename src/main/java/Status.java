@@ -1,4 +1,4 @@
 public enum Status {
-    ACTIVE ,
-    DONE
+    Active ,
+    Done
 }
