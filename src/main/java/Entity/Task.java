@@ -9,6 +9,8 @@ import static jakarta.persistence.InheritanceType.JOINED;
 @Entity
 @Inheritance(strategy=JOINED)
 @Table(name = "Tasks")
+@NamedQuery(name = "Tasks.byPerson", query = "select t from Task t where t.person.id = :ownerId")
+@NamedQuery(name = "TasksFilter.byPerson", query = "select t from Task t where t.person.id = :ownerId and t.status =: status")
 public class Task implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -20,6 +22,14 @@ public class Task implements Serializable {
 
     @Enumerated(EnumType.STRING)
     private Status status ;
+
+    public Task(Status status) {
+        this.status = status;
+    }
+
+    public Task() {
+
+    }
 
     public String getId() {
         return id;

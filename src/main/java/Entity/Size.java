@@ -1,6 +1,8 @@
 package Entity;
 
-public enum Size {
+import java.io.Serializable;
+
+public enum Size implements Serializable {
     Small ,
     Medium ,
     Large

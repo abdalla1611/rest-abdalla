@@ -7,6 +7,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 @Entity
+@Table(name = "Homework_table")
 public class HomeWork extends Task {
 
     @Enumerated(EnumType.STRING)
@@ -15,6 +16,17 @@ public class HomeWork extends Task {
     private String details ;
     @Basic
     private Date dueDate ;
+
+    public HomeWork(Status status, String course, String details, Date dueDate) {
+        super(status);
+        this.course = course;
+        this.details = details;
+        this.dueDate = dueDate;
+    }
+
+    public HomeWork() {
+
+    }
 
     public Type getType() {
         return type;

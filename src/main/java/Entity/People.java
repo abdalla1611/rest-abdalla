@@ -23,8 +23,18 @@ public class People implements Serializable {
     @OneToMany(mappedBy = "person")
     private List<Task> tasks = new ArrayList<>();
 
-    @Column(name = "activeTaskCount",columnDefinition = "0")
+    @Column(name = "activeTaskCount")
     private int activeTaskCount ;
+
+    public People(String name, String email, String favoriteProgrammingLanguage, int activeTaskCount) {
+        this.name = name;
+        this.email = email;
+        this.favoriteProgrammingLanguage = favoriteProgrammingLanguage;
+        this.activeTaskCount = activeTaskCount;
+    }
+
+    public People() {
+    }
 
     public String getId() {
         return id;
@@ -41,6 +51,10 @@ public class People implements Serializable {
     public void IncrementActiveTaskCount(){
         this.activeTaskCount ++;
     }
+    public void decrementActiveTaskCount(){
+        this.activeTaskCount --;
+    }
+
 
     public String getName() {
         return name;
@@ -66,4 +80,17 @@ public class People implements Serializable {
         this.favoriteProgrammingLanguage = favoriteProgrammingLanguage;
     }
 
+    public String AddTask(Task t){
+        tasks.add(t);
+        t.setPerson(this);
+        return t.getId();
+    }
+
+    public void DeleteTask(Task t){
+        tasks.remove(t);
+        t.setPerson(null);
+        if(t.getStatus() == Status.Active){
+            decrementActiveTaskCount();
+        }
+    }
 }
