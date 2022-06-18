@@ -40,7 +40,7 @@ public class PeopleController {
 
     @PUT
     @Path("/{id}")
-    public Response update(@PathParam("id") Long id, People people) {
+    public Response update(@PathParam("id") String id, People people) {
         repository.update(people);
         return Response.ok(people).build();
     }
