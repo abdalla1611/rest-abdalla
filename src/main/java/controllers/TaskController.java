@@ -10,8 +10,6 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import repository.TaskRepository;
 
-import java.util.List;
-
 @Produces({"application/json","text/plain"})
 @Consumes({"application/json","text/pain"})
 @Transactional
